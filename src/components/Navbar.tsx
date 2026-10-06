@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { type Personal } from "../types/portfolio";
 import { Button } from "./ui/button";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { mainNavLinks } from "../data/navigation";
 
 interface NavbarProps {
   personal: Personal;
@@ -9,14 +10,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Education", href: "#education" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const navLinks = mainNavLinks;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/60">
@@ -42,11 +36,11 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.label}
               href={link.href}
               className="text-xs uppercase tracking-widest font-body font-semibold text-on-surface-variant hover:text-primary transition-colors py-1"
             >
-              {link.name}
+              {link.label}
             </a>
           ))}
         </nav>
@@ -93,12 +87,12 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
         <div className="lg:hidden bg-surface-container-low border-b border-outline-variant px-6 py-4 flex flex-col gap-3">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.label}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-xs uppercase tracking-widest font-body font-semibold text-on-surface hover:text-primary py-2 border-b border-outline-variant/40"
             >
-              {link.name}
+              {link.label}
             </a>
           ))}
           <div className="pt-2">

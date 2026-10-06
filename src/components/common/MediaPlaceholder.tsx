@@ -6,6 +6,7 @@ interface MediaPlaceholderProps {
   alt: string;
   hint: string;
   className?: string;
+  loading?: "lazy" | "eager";
 }
 
 export function MediaPlaceholder({
@@ -13,12 +14,15 @@ export function MediaPlaceholder({
   alt,
   hint,
   className,
+  loading = "lazy",
 }: MediaPlaceholderProps) {
   if (src) {
     return (
       <img
         src={src}
         alt={alt}
+        loading={loading}
+        decoding="async"
         className={cn("w-full h-full object-cover", className)}
       />
     );

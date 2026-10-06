@@ -1,4 +1,8 @@
 import type { ProjectItem } from "../types/portfolio";
+import splitbillImg from "../assets/splitbill-image.png";
+import dssImg from "../assets/dss-image.png";
+import ecowiseImg from "../assets/ecowise-image.png";
+import manggoImg from "../assets/manggo_agent-image.png";
 
 export const projects: ProjectItem[] = [
   {
@@ -8,7 +12,7 @@ export const projects: ProjectItem[] = [
     highlight:
       "Led a team of 6 to build a responsive interface and the gamification mechanics.",
     techStack: ["React.js", "Express.js", "RESTful API"],
-    screenshot: "",
+    screenshot: ecowiseImg,
     githubUrl: "https://github.com/Capstone-2026-Eco-Wise",
   },
   {
@@ -18,7 +22,7 @@ export const projects: ProjectItem[] = [
     highlight:
       "High-concurrency backend built with Go Fiber, with type-safe state management in TypeScript.",
     techStack: ["React", "TypeScript", "Go (Fiber)", "RESTful API"],
-    screenshot: "",
+    screenshot: splitbillImg,
     githubUrl: "https://github.com/Bobbb00/SplitBill",
   },
   {
@@ -34,7 +38,7 @@ export const projects: ProjectItem[] = [
       "Groq/Gemini LLM APIs",
       "MySQL",
     ],
-    screenshot: "",
+    screenshot: dssImg,
     githubUrl: "",
   },
   {
@@ -45,7 +49,7 @@ export const projects: ProjectItem[] = [
       "98.00% classification accuracy with a real-time diagnostic inference path.",
     techStack: ["Python", "Flask", "VGG16 CNN", "Transfer Learning"],
     note: "Local Repository with Complete README & Docs",
-    screenshot: "",
+    screenshot: manggoImg,
     githubUrl: "https://github.com/Bobbb00/manggo-agent",
   },
 ];

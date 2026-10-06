@@ -41,33 +41,36 @@ export const HeroSection = ({ personal, stats }: HeroSectionProps) => {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Button href="#projects" size="lg">
-              Explore Projects
-              <ArrowDown className="w-4 h-4" />
+            <Button href="#projects" size="lg" className="group">
+              <span>Explore Projects</span>
+              <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </Button>
             <Button
               href={personal.cvUrl}
               variant="outline"
               size="lg"
               isExternal
+              className="group"
             >
-              <FileText className="w-4 h-4" />
-              Download CV
+              <FileText className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Download CV</span>
             </Button>
           </div>
 
           <dl className="grid grid-cols-3 max-w-lg pt-6 mt-2 border-t border-outline-variant">
-            {stats.map((stats, i) => (
+            {stats.map((stat, i) => (
               <div
-                key={stats.label}
-                className={i > 0 ? "pl-4 border-l border-outline-variant" : ""}
+                key={stat.label}
+                className={`transition-colors hover:border-primary/60 ${
+                  i > 0 ? "pl-4 border-l border-outline-variant" : ""
+                }`}
               >
-                <dt className="sr-only">{stats.label}</dt>
+                <dt className="sr-only">{stat.label}</dt>
                 <dd className="font-headline text-2xl font-bold text-primary">
-                  {stats.value}
+                  {stat.value}
                 </dd>
-                <p className="text-[11px] uppercase tracking-wide text-on-surface-variant">
-                  {stats.label}
+                <p className="text-[11px] uppercase tracking-wide text-on-surface-variant font-medium">
+                  {stat.label}
                 </p>
               </div>
             ))}
@@ -76,7 +79,7 @@ export const HeroSection = ({ personal, stats }: HeroSectionProps) => {
 
         {/* Kanan: bingkai foto */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="relative w-full max-w-md p-4 bg-surface-container-lowest border border-outline-variant shadow-[6px_6px_0px_#9a3412]">
+          <div className="group relative w-full max-w-md p-4 bg-surface-container-lowest border border-outline-variant shadow-[6px_6px_0px_#9a3412] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#9a3412]">
             {[
               "-top-2 -left-2",
               "-top-2 -right-2",
@@ -86,23 +89,49 @@ export const HeroSection = ({ personal, stats }: HeroSectionProps) => {
               <span
                 key={pos}
                 aria-hidden
-                className={`absolute ${pos} text-primary font-mono text-sm leading-none select-none`}
+                className={`absolute ${pos} text-primary font-mono text-sm leading-none select-none transition-transform duration-500 group-hover:rotate-90`}
               >
                 +
               </span>
             ))}
 
-            <div className="aspect-square bg-surface-container border border-outline-variant overflow-hidden">
+            {/* Top Specification Header Bar */}
+            <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-outline-variant font-mono text-[10px] uppercase tracking-wider text-outline">
+              <span className="flex items-center gap-1.5 font-bold text-primary">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                PORTRAIT
+              </span>
+              <span>++</span>
+            </div>
+
+            <div className="relative aspect-square bg-surface-container border border-outline-variant overflow-hidden">
               <MediaPlaceholder
                 src={personal.photoUrl}
                 alt={`Foto profil ${personal.name}`}
                 hint="Foto profil · 1:1"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                loading="eager"
               />
+
+              {/* Floating Architectural Badge (Bottom Left) */}
+              <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-surface/90 backdrop-blur-md border border-outline-variant shadow-sm flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-0.5">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="font-mono text-[10px] font-bold tracking-wider text-on-surface uppercase">
+                  Full-Stack Eng.
+                </span>
+              </div>
+
+              {/* Floating Location Tag (Top Right) */}
+              <div className="absolute top-3 right-3 px-2 py-0.5 bg-surface/90 backdrop-blur-md border border-outline-variant font-mono text-[9px] uppercase tracking-widest text-outline">
+                JKT · UTC+7
+              </div>
             </div>
 
             <div className="flex justify-between items-center pt-3 font-mono text-[11px] uppercase tracking-wider text-outline">
-              <span>{personal.name}</span>
-              <span>{personal.location}</span>
+              <span className="font-bold text-on-surface">{personal.name}</span>
+              <span className="text-[10px] text-primary font-bold tracking-wider">
+                {personal.location}
+              </span>
             </div>
           </div>
         </div>

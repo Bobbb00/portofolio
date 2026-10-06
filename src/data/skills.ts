@@ -5,7 +5,7 @@ export const skillGroups: SkillGroup[] = [
     id: "languages",
     title: "Languages",
     icon: "code",
-    skills: ["Go", "TypeScript", "JavaScript", "PHP", "Python", "SQL"],
+    skills: ["Go", "TypeScript", "JavaScript", "PHP", "Python", "SQL", "HTML5", "CSS"],
   },
   {
     id: "frameworks",
@@ -34,6 +34,8 @@ export const skillGroups: SkillGroup[] = [
       "GitHub",
       "MySQL",
       "PostgreSQL",
+      "Claude AI",
+      "ChatGPT"
     ],
   },
 ];

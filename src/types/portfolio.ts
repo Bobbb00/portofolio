@@ -17,10 +17,23 @@ export interface Stat {
 }
 
 export interface SocialLink {
-  id: "github" | "linkedin";
+  id: string;
   label: string;
   handle: string;
   href: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface ContactConfig {
+  collaborationStatus: string;
+  headline: string;
+  statement: string;
+  locationTitle: string;
+  locationDescription: string;
 }
 
 export interface ProjectItem {
@@ -47,8 +60,13 @@ export interface SkillGroup {
 export interface Education {
   institution: string;
   degree: string;
+  faculty: string;
+  period: string;
   gpa: string;
   gpaScale: string;
+  honors: string;
+  description: string;
+  courses: string[];
 }
 
 export interface Certification {
@@ -56,4 +74,8 @@ export interface Certification {
   track: string;
   organizer: string;
   standing: string;
+  cohort: string;
+  standingBadge: string;
+  description: string;
+  skills: string[];
 }

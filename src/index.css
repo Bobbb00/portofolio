@@ -3,17 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-    html,
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5.5rem;
+    }
+
     body {
         margin: 0;
         padding: 0;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+        background-color: #ffdbd1;
+        color: #781f00;
     }
 }
 
 /* Pola titik grid halus khas arsitektural */
 .bg-grid-subtle {
     background-image: radial-gradient(
-        rgba(139, 113, 106, 0.15) 1px,
+        rgba(139, 113, 106, 0.16) 1px,
         transparent 1px
     );
     background-size: 24px 24px;
