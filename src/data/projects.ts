@@ -39,7 +39,7 @@ export const projects: ProjectItem[] = [
       "MySQL",
     ],
     screenshot: dssImg,
-    githubUrl: "",
+    githubUrl: "https://github.com/Bobbb00/SPK-TOPSIS",
   },
   {
     id: "mango-ai",
