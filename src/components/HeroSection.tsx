@@ -50,6 +50,7 @@ export const HeroSection = ({ personal, stats }: HeroSectionProps) => {
               variant="outline"
               size="lg"
               isExternal
+              download="CV_SyafaAliAzmi.pdf"
               className="group"
             >
               <FileText className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />

@@ -37,10 +37,11 @@ export interface ButtonProps
   asChild?: boolean;
   href?: string;
   isExternal?: boolean;
+  download?: boolean | string;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, href, isExternal, children, ...props }, ref) => {
+  ({ className, variant, size, href, isExternal, download, children, ...props }, ref) => {
     if (href) {
       return (
         <a
@@ -48,6 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className={cn(buttonVariants({ variant, size, className }))}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
+          download={download}
         >
           {children}
         </a>

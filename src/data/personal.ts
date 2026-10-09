@@ -1,5 +1,6 @@
 import type { Personal } from "../types/portfolio";
 import mePhoto from "../assets/me-profile.jpg";
+import cvPdf from "../assets/CV_SyafaAliAzmi.pdf";
 
 export const personal: Personal = {
   name: "Syafa Ali Azmi",
@@ -10,6 +11,6 @@ export const personal: Personal = {
   availability: "Available for Internship & Full-time Roles",
   location: "Jakarta, ID",
   email: "syafaaliazmi231003@gmail.com",
-  cvUrl: "/CV_SyafaAliAzmi.pdf",
+  cvUrl: cvPdf,
   photoUrl: mePhoto,
 };
